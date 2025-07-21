@@ -13,3 +13,12 @@ for _ in range(len(result)):
             print(x)
     # print(result[_])
     # print(type(result[_])) #tuple
+
+    #NOTE!!!!!!
+    #when installing packages with pip
+    #instead of git bash
+    #use command prompt 
+    # bottom right of vscode, the downward arrow next to +
+    # type:
+    #.venv/Scipts/activate
+    #then it should come up with prefix (.venv)
