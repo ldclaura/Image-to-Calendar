@@ -3,7 +3,7 @@ reader = easyocr.Reader(['en']) # this needs to run only once to load the model 
 
 
 
-result = reader.readtext('screenshot.jpg')
+result = reader.readtext('screenshot.png')
 # print(result)
 for _ in range(len(result)):
     for x in result[_]:
@@ -22,3 +22,8 @@ for _ in range(len(result)):
     # type:
     #.venv/Scipts/activate
     #then it should come up with prefix (.venv)
+
+#it uses CPU instead of GPU
+#Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+# \Lib\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+#   warnings.warn(warn_msg)
