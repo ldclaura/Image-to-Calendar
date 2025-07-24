@@ -11,6 +11,29 @@ for _ in range(len(result)):
         # print(type(x))
         if type(x) == str:
             print(x)
+            if x == "all-day":
+                print("GAY") #make it so if it has "all-day" it crops it differently
+
+
+#IMPORTANT
+#!!!NOTE
+#make it so it saves x into a list???
+#then it looks through the list and sees if the list contains all:
+#all-day
+#10am
+#11am
+#etc, the sidebar crap,
+#to see if you crop it or not
+
+
+
+
+
+
+
+
+
+
     # print(result[_])
     # print(type(result[_])) #tuple
 
