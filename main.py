@@ -2,17 +2,31 @@ import easyocr
 reader = easyocr.Reader(['en']) # this needs to run only once to load the model into memory
 
 
+class Calendar_Reader:
+    def __init__(self, image):
+        self.image = reader.readtext(image)
+    def read(self):
+        self.list = []
+        for _ in range(len(self.image)):
+            for x in self.image[_]:
+                if type(x) == str:
+                    self.list.append(x)
+        return tuple(self.list)
 
-result = reader.readtext('screenshot.png')
-# print(result)
-for _ in range(len(result)):
-    for x in result[_]:
-        # print(x)
-        # print(type(x))
-        if type(x) == str:
-            print(x)
-            if x == "all-day":
-                print("GAY") #make it so if it has "all-day" it crops it differently
+
+
+Calendar_Reader('screenshot.png').read()
+
+# result = reader.readtext('screenshot.png')
+# # print(result)
+# for _ in range(len(result)):
+#     for x in result[_]:
+#         # print(x)
+#         # print(type(x))
+#         if type(x) == str:
+#             print(x)
+#             if x == "all-day":
+#                 print("GAY") #make it so if it has "all-day" it crops it differently
 
 
 #IMPORTANT
