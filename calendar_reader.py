@@ -7,7 +7,7 @@ class Calendar_Reader:
     def __init__(self, image):
         self.image = reader.readtext(image)
     def read(self):
-        """Reads self.image
+        """Reads self.image\n
         returns text in image as str in tuple"""
         self.list = []
         for _ in range(len(self.image)):
