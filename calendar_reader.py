@@ -1,7 +1,7 @@
 import easyocr
 reader = easyocr.Reader(['en']) # this needs to run only once to load the model into memory
 
-
+# https://stackoverflow.com/questions/3408097/parsing-files-ics-icalendar-using-python
 class Calendar_Reader:
     """Reads screenshot of calendar"""
     def __init__(self, image):

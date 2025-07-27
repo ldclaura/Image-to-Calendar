@@ -184,6 +184,8 @@ cython_debug/
 .cursorindexingignore
 
 # Screenshots
+.images
+images
 screenshot.jpg
 .screenshot.jpg
 screenshot
