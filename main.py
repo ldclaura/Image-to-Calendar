@@ -1,4 +1,4 @@
-from calendar_reader import Calendar_Reader
+from calendar_reader_writer import Calendar_Reader, Calendar_Writer
 from cut_image import Image_Crop
 
 WEEKDAYS_DICT = {0: "Monday", 1: "Tuesday", 2: "Wednesday", 3: "Thursday", 4: "Friday"}
@@ -15,9 +15,10 @@ for x in Calendar_Reader(img).read():
 Image_Crop(img).days(WEEKDAYS_DICT)
 print(Calendar_Reader(img).read())
 
-objs = [Calendar_Reader(f"images/img_{weekdays + 1}_{WEEKDAYS_DICT[weekdays]}.png").read() for weekdays in WEEKDAYS_DICT]
-for obj in objs:
-    print(obj)
+
+objs = {WEEKDAYS_DICT[weekdays] : Calendar_Reader(f"images/img_{weekdays + 1}_{WEEKDAYS_DICT[weekdays]}.png") for weekdays in WEEKDAYS_DICT}
+for k, v in objs.items():
+    print(k, v.read())
 
 #for item in self.weekdays_dict create a Calendar_Reader class that reads each day of the week.
 # objs = [Calendar_Reader(f"img_{Calendar_Reader.weekdays_dict + 1}_{weekdays_dict[weekdays]}.png").read() for i in weekdays_dict]
