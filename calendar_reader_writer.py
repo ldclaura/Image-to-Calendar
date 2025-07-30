@@ -43,6 +43,7 @@ class Calendar_Writer:
     """Writes to ics file"""
     def __init__(self, image):
         self.image = image
+        self.weekdays = ("Mon", "Tue", "Wed", "Thu", "Fri")
         #e.g. 
         # Monday ('C', 'Mon 28/7', 'am', '10.30am', 'Admin', 'Monday Morning Meeting',
         #  'Cain, Ashley (MSGJI78) Available', '10 am', 'TANYA SCHREIBER',
@@ -68,10 +69,61 @@ class Calendar_Writer:
         f.write(cal.to_ical())
         f.close()
     def str_to_time(self):
-        for _ in self.image:
-            pass
+        """detects if self.image contains am or pm"""
+        print(self.image)
+        for x in self.image:
+            times = []
+            print(x)
+            if "am" in x or "pm" in x:
+                for _ in x:
+                    if _ == ":" or _ == ".":
+                        times.append(_) #remove if just want numbers
+                    try:
+                        int(_)
+                        times.append(str(_))
+                    except ValueError:
+                        pass
+            print(times) #['3', '.', '3', '0']
+            times = ''.join(times) 
+            print(times) #3.30
+    def str_to_time2(self):
+        """Supposed to put in nested list beginning with the time including am or pm\n
+        [['12 pm', 'Marketing', 'Ashley (MSGi78)', 'Ivailable'], ['3pm', 'etc']]"""
+        times = []
+        times2 = []
+        for x in self.image:
+            times2.append(x)
+            if "am" in x or "pm" in x:
+                times.append(times2)
+                print(times2)
+                times2 = []
+        print(times)
 
 
+
+
+
+
+
+
+
+
+        # print(self.image)
+        # looping = True
+        # times = []
+        # while looping:
+        #     in_times = []
+        #     for x in self.image:
+        #         print(x)
+        #         in_times.append(x)
+        #         if "am" in x or "pm" in x:
+        #             times.append(in_times)
+        #             looping = False
+
+
+        #         print(times) #['3', '.', '3', '0']
+        #         times = ''.join(times) 
+        #         print(times) #3.30
 #IMPORTANT
 #!!!NOTE
 #make it so it saves x into a list???

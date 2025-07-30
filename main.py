@@ -16,9 +16,10 @@ Image_Crop(img).days(WEEKDAYS_DICT)
 print(Calendar_Reader(img).read())
 
 
-objs = {WEEKDAYS_DICT[weekdays] : Calendar_Reader(f"images/img_{weekdays + 1}_{WEEKDAYS_DICT[weekdays]}.png") for weekdays in WEEKDAYS_DICT}
+objs = {WEEKDAYS_DICT[weekdays] : Calendar_Reader(f"images/img_{weekdays + 1}_{WEEKDAYS_DICT[weekdays]}.png").read() for weekdays in WEEKDAYS_DICT}
 for k, v in objs.items():
-    print(k, v.read())
+    print(k, v)
+    Calendar_Writer(v).str_to_time2()
 
 #for item in self.weekdays_dict create a Calendar_Reader class that reads each day of the week.
 # objs = [Calendar_Reader(f"img_{Calendar_Reader.weekdays_dict + 1}_{weekdays_dict[weekdays]}.png").read() for i in weekdays_dict]
