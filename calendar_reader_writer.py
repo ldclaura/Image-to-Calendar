@@ -87,18 +87,29 @@ class Calendar_Writer:
             times = ''.join(times) 
             print(times) #3.30
     def str_to_time2(self):
-        """Supposed to put in nested list beginning with the time including am or pm\n
-        [['12 pm', 'Marketing', 'Ashley (MSGi78)', 'Ivailable'], ['3pm', 'etc']]"""
+        """List of Dictionaries of tuples\n
+        [{time:(schedule)}]\n
+        e.g.\n
+        {12 pm:('Marketing', 'Ashley', 'Ivailable')}\n
+        time is determined based on if self.image item contains am or pm"""
+        full_list = []
         times = []
         times2 = []
         for x in self.image:
-            times2.append(x)
             if "am" in x or "pm" in x:
                 times.append(times2)
-                print(times2)
+                # print(times2)
                 times2 = []
+            times2.append(x)
         print(times)
+        for t in times:
+            new_dict = {t[0]:tuple(t[1:]) for key in t}
+        #     for key in new_dict.items():
+        #         if new_dict[key] == ():
+        #             new_dict.pop(new_dict[key])
 
+            full_list.append(new_dict)
+        return full_list
 
 
 
