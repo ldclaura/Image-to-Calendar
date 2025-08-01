@@ -101,14 +101,10 @@ class Calendar_Writer:
                 # print(times2)
                 times2 = []
             times2.append(x)
-        print(times)
         for t in times:
-            new_dict = {t[0]:tuple(t[1:]) for key in t}
-        #     for key in new_dict.items():
-        #         if new_dict[key] == ():
-        #             new_dict.pop(new_dict[key])
-
-            full_list.append(new_dict)
+            if t[1:] != []:
+                new_dict = {t[0]:tuple(t[1:]) for key in t}
+                full_list.append(new_dict)
         return full_list
 
 

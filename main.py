@@ -21,7 +21,7 @@ for k, v in objs.items():
     print(v)
     # print(k, v)
     print(Calendar_Writer(v).str_to_time2())
-
+# print(Calendar_Writer(Calendar_Reader(img).read()).str_to_time2())
 #for item in self.weekdays_dict create a Calendar_Reader class that reads each day of the week.
 # objs = [Calendar_Reader(f"img_{Calendar_Reader.weekdays_dict + 1}_{weekdays_dict[weekdays]}.png").read() for i in weekdays_dict]
 
